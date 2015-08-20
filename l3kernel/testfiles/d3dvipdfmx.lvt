@@ -3,7 +3,14 @@
 \else
   \csname pdfoutput\endcsname=0 %
 \fi
+\ifdefined\kanjiskip % (u)pLaTeX allocates additional registers
+  \advance\count14 by -15 
+\fi
 
 \RequirePackage[check-declarations,log-functions,driver=dvipdfmx]{expl3}
+
+\ifdefined\kanjiskip
+  \advance\count14 by 15 
+\fi
 
 \input{driver.tex}

@@ -12,7 +12,8 @@
 %% Generated on 2015-07-20.
 %%
 \ProvidesExplFile {l3unicode-data.def} {2015/07/20} {5676} {L3 Unicode data}
-\pdftex_if_engine:T
+\bool_if:nT
+  { \pdftex_if_engine_p: || \ptex_if_engine_p: }
   {
     \group_begin:
       \cs_set_protected:Npn \__unicode_tmp:NN #1#2

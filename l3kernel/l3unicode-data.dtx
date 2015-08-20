@@ -410,7 +410,8 @@
 % range), no-op data is included (as the \emph{output} would be out-of-range).
 %    \begin{macrocode}
 \__unicode_verb:
-\pdftex_if_engine:T
+\bool_if:nT
+  { \pdftex_if_engine_p: || \ptex_if_engine_p: }
   {
     \group_begin:
       \cs_set_protected:Npn \__unicode_tmp:NN #1#2
