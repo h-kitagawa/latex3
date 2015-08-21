@@ -1190,10 +1190,7 @@
       }
   }
 \cs_generate_variant:Nn \int_const:Nn { c }
-\uptex_if_kanji_uptex:TF
-% \uptex_if_engine:TF is not sufficient,
-% since if the kanji encoding is EUC or Shift-JIS, 
-% \kchardef cannot accept 256
+\uptex_if_engine:TF
   {
     \cs_new_eq:NN \@@_constdef:Nw \uptex_kchardef:D
     \uptex_kchardef:D \c__max_constdef_int 1 114 111 ~
