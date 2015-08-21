@@ -674,10 +674,9 @@
 % \begin{macro}{\if_bool:N}
 % \begin{macro}{\if_predicate:w}
 %   Those two primitive \TeX{} conditionals are synonyms.
-%   They should not be used outside the kernel code.
 %    \begin{macrocode}
-\tex_let:D \if_bool:N          \tex_ifodd:D
-\tex_let:D \if_predicate:w     \tex_ifodd:D
+\cs_new_eq:NN \if_bool:N      \tex_ifodd:D
+\cs_new_eq:NN \if_predicate:w \tex_ifodd:D
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -794,7 +793,7 @@
 %  code complements similar material in \pkg{l3tl}.
 %    \begin{macrocode}
 %<*package>
-\tex_ifodd:D \l@expl@check@declarations@bool
+\if_bool:N \l@expl@check@declarations@bool
   \cs_set_protected:Npn \bool_set_true:N #1
     {
       \__chk_if_exist_var:N #1
@@ -835,7 +834,7 @@
       \__chk_if_exist_var:N #1
       \tex_global:D \tex_chardef:D #1 = \bool_if_p:n {#2}
     }
-\tex_fi:D
+\fi:
 %</package>
 %    \end{macrocode}
 %
