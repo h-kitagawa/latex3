@@ -17,8 +17,8 @@
 --]]
 
 -- Version information: should be identical to that in l3build.dtx
-release_date = "2015/08/18"
-release_ver  = "5866"
+release_date = "2015/09/06"
+release_ver  = "5925"
 
 -- "module" is a deprecated function in Lua 5.2: as we want the name
 -- for other purposes, and it should eventually be 'free', simply
@@ -372,7 +372,7 @@ end
 -- Support items are defined here for cases where a single string can cover
 -- both Windows and Unix cases: more complex situations are handled inside
 -- the support functions
-if string.sub(package.config, 1, 1) == "\\" then
+if os.type == "windows" then
   os_concat   = "&"
   os_diffext  = ".fc"
   os_diffexe  = "fc /n"
@@ -721,7 +721,12 @@ function formatlog(logfile, newfile, engine)
       line = string.gsub(line, "%(.*/([%w-]+%.[%w-]+)%s*$", "(../%1")
     end
     -- Zap map loading of map
-    line = string.gsub(line, "%{[%w/%-]*/pdftex%.map%}", "")
+    line = string.gsub(line, "%{%w?:?[%w/%-]*/pdftex%.map%}", "")
+    -- Merge all of .fd data into one line so will be removed later
+    if string.match(line, "^%([%.%/%w]+%.fd[^%)]*$") then
+      lastline = (lastline or "") .. line
+      return ""
+    end
     -- TeX90/XeTeX knows only the smaller set of dimension units
     line = string.gsub(
         line, "cm, mm, dd, cc, bp, or sp", "cm, mm, dd, cc, nd, nc, bp, or sp"
@@ -978,6 +983,12 @@ function runtest(name, engine, hide, ext)
     format = " -fmt=" .. string.gsub(engine, "(.*)tex$", "%1") .. checkformat
   else
     format = ""
+  end
+  -- Special casing for e-LaTeX format
+  if
+    string.match(checkformat, "^latex$") and
+    string.match(engine, "^etex$") then
+    format = " -fmt=latex"
   end
   -- Special casing for (u)pTeX LaTeX formats
   if
