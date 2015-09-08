@@ -2948,6 +2948,90 @@
 %    \end{macrocode}
 % \end{macro}
 %
+<<<<<<< HEAD
+% \subsection{Engine specific definitions}
+%
+% \begin{macro}[pTF, EXP]
+%   {\xetex_if_engine:, \luatex_if_engine:, \pdftex_if_engine:}
+%   In some cases it will be useful to know which engine we're running.
+%   This can all be hard-coded for speed.
+%    \begin{macrocode}
+\cs_new_eq:NN \luatex_if_engine:T  \use_none:n
+\cs_new_eq:NN \luatex_if_engine:F  \use:n
+\cs_new_eq:NN \luatex_if_engine:TF \use_ii:nn
+\cs_new_eq:NN \pdftex_if_engine:T  \use:n
+\cs_new_eq:NN \pdftex_if_engine:F  \use_none:n
+\cs_new_eq:NN \pdftex_if_engine:TF \use_i:nn
+\cs_new_eq:NN \xetex_if_engine:T   \use_none:n
+\cs_new_eq:NN \xetex_if_engine:F   \use:n
+\cs_new_eq:NN \xetex_if_engine:TF  \use_ii:nn
+\cs_new_eq:NN \luatex_if_engine_p: \c_false_bool
+\cs_new_eq:NN \pdftex_if_engine_p: \c_true_bool
+\cs_new_eq:NN \xetex_if_engine_p:  \c_false_bool
+\cs_if_exist:NT \xetex_XeTeXversion:D
+  {
+    \cs_gset_eq:NN \pdftex_if_engine:T  \use_none:n
+    \cs_gset_eq:NN \pdftex_if_engine:F  \use:n
+    \cs_gset_eq:NN \pdftex_if_engine:TF \use_ii:nn
+    \cs_gset_eq:NN \xetex_if_engine:T   \use:n
+    \cs_gset_eq:NN \xetex_if_engine:F   \use_none:n
+    \cs_gset_eq:NN \xetex_if_engine:TF  \use_i:nn
+    \cs_gset_eq:NN \pdftex_if_engine_p: \c_false_bool
+    \cs_gset_eq:NN \xetex_if_engine_p:  \c_true_bool
+  }
+\cs_if_exist:NT \luatex_directlua:D
+  {
+    \cs_gset_eq:NN \luatex_if_engine:T  \use:n
+    \cs_gset_eq:NN \luatex_if_engine:F  \use_none:n
+    \cs_gset_eq:NN \luatex_if_engine:TF \use_i:nn
+    \cs_gset_eq:NN \pdftex_if_engine:T  \use_none:n
+    \cs_gset_eq:NN \pdftex_if_engine:F  \use:n
+    \cs_gset_eq:NN \pdftex_if_engine:TF \use_ii:nn
+    \cs_gset_eq:NN \luatex_if_engine_p: \c_true_bool
+    \cs_gset_eq:NN \pdftex_if_engine_p: \c_false_bool
+  }
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}[pTF, EXP]
+%   {\ptex_if_engine:, \uptex_if_engine:}
+%   These commands are similar. 
+%   \cs{ptex_if_engine:...} is true if we use \epTeX{} \emph{or} \eupTeX. 
+%   \cs{uptex_if_engine:...} is true if we use \eupTeX{} and the current internal kanji
+%   code is UTF-8.
+%    \begin{macrocode}
+\cs_new_eq:NN \ptex_if_engine:T    \use_none:n
+\cs_new_eq:NN \ptex_if_engine:F    \use:n
+\cs_new_eq:NN \ptex_if_engine:TF   \use_ii:nn
+\cs_new_eq:NN \ptex_if_engine_p:   \c_false_bool
+\cs_new_eq:NN \uptex_if_engine:T   \use_none:n
+\cs_new_eq:NN \uptex_if_engine:F   \use:n
+\cs_new_eq:NN \uptex_if_engine:TF  \use_ii:nn
+\cs_new_eq:NN \uptex_if_engine_p:  \c_false_bool
+\cs_if_exist:NT \ptex_kanjiskip:D
+  {
+    \cs_gset_eq:NN \ptex_if_engine:T    \use:n
+    \cs_gset_eq:NN \ptex_if_engine:F    \use_none:n
+    \cs_gset_eq:NN \ptex_if_engine:TF   \use_i:nn
+    \cs_gset_eq:NN \ptex_if_engine_p:   \c_true_bool
+    \cs_gset_eq:NN \pdftex_if_engine:T  \use_none:n
+    \cs_gset_eq:NN \pdftex_if_engine:F  \use:n
+    \cs_gset_eq:NN \pdftex_if_engine:TF \use_ii:nn
+    \cs_gset_eq:NN \pdftex_if_engine_p: \c_false_bool
+  }
+\cs_if_exist:NT \uptex_disablecjktoken:D % e-upTeX test 1
+  {
+    \ifnum \ptex_jis:D "2121 = "3000     % e-upTeX test 2
+    \cs_gset_eq:NN \uptex_if_engine:T   \use:n
+    \cs_gset_eq:NN \uptex_if_engine:F   \use_none:n
+    \cs_gset_eq:NN \uptex_if_engine:TF  \use_i:nn
+    \cs_gset_eq:NN \uptex_if_engine_p:  \c_true_bool
+    \fi
+  }
+%    \end{macrocode}
+% \end{macro}
+%
+=======
+>>>>>>> master
 % \subsection{Doing nothing functions}
 %
 % \begin{macro}[EXP]{\prg_do_nothing:}

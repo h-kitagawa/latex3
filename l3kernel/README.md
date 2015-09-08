@@ -48,21 +48,21 @@ changes, additions, _etc._ should be addressed to the list
 
 You can subscribe to this list by sending mail to
 
-  listserv@urz.uni-heidelberg.de
+    listserv@urz.uni-heidelberg.de
 
 with the body containing
 
-  subscribe LATEX-L  <Your-First-Name> <Your-Second-Name>
+    subscribe LATEX-L  <Your-First-Name> <Your-Second-Name>
 
-Bugs
-----
+Issues
+------
 
-The issue tracker for LaTeX3 bugs is currently located at
+The issue tracker for LaTeX3 is currently located at
 
-  https://github.com/latex3/latex3/issues
+    https://github.com/latex3/latex3/issues
 
-Please report specific issues with LaTeX3 code there. More general
-discussion should be directed to the LaTeX-L lists.
+Please report specific issues with LaTeX3 code there; more general
+discussion should be directed to the [LaTeX-L list](#Discussion).
 
 The LaTeX3 Project
 ------------------
@@ -92,10 +92,10 @@ Former members of The LaTeX3 Project team were
 
 The development team can be contacted
 by e-mail: <latex-team@latex-project.org>; for general LaTeX3 discussion
-the [LaTeX-L list](http://news.gmane.org/group/gmane.comp.tex.latex.latex3)
-should be used.
+the [LaTeX-L list](#Discussion) should be used.
 
 -----
 
-Copyright (C) 1998-2012 The LaTeX3 Project
-All rights reserved
+<p>Copyright (C) 1998-2012,2015 The LaTeX3 Project <br />
+<a href="http://latex-project.org/">http://latex-project.org/</a> <br />
+All rights reserved.</p>

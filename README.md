@@ -65,10 +65,10 @@ with the body containing
 
     subscribe LATEX-L  <Your-First-Name> <Your-Second-Name>
 
-Bugs
-----
+Issues
+------
 
-The issue tracker for LaTeX3 bugs is currently located at
+The issue tracker for LaTeX3 is currently located at
 
     https://github.com/latex3/latex3/issues
 
@@ -103,9 +103,10 @@ Former members of The LaTeX3 Project team were
 
 The development team can be contacted
 by e-mail: <latex-team@latex-project.org>; for general LaTeX3 discussion
-the [LaTeX-L list](#Discussion) should be used .
+the [LaTeX-L list](#Discussion) should be used.
 
 -----
 
-Copyright (C) 2011,2012,2014,2015 The LaTeX3 Project
-All rights reserved
+<p>Copyright (C) 2011,2012,2014,2015 The LaTeX3 Project <br />
+<a href="http://latex-project.org/">http://latex-project.org/</a> <br />
+All rights reserved.</p>

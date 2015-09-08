@@ -1190,22 +1190,26 @@
       }
   }
 \cs_generate_variant:Nn \int_const:Nn { c }
-\uptex_if_engine:TF
+\cs_if_exist:NTF \ptex_jis:D
   {
-    \cs_new_eq:NN \@@_constdef:Nw \uptex_kchardef:D
-    \uptex_kchardef:D \c__max_constdef_int 1 114 111 ~
+    \ifnum \ptex_jis:D "2121 = "3000
+      \cs_new_eq:NN \@@_constdef:Nw \uptex_kchardef:D
+      \uptex_kchardef:D \c__max_constdef_int 1 114 111 ~
+    \else
+      \cs_new_eq:NN \@@_constdef:Nw \tex_mathchardef:D
+      \tex_mathchardef:D \c__max_constdef_int 32 767 ~
+    \fi
   }
   {
-    \ifnum 00=
-      \luatex_if_engine:TF{1}{0}
-      \xetex_if_engine:TF{1}{0}
-
+    \cs_if_exist:NTF \pdftex_pdftexversion:D
+      {
         \cs_new_eq:NN \@@_constdef:Nw \tex_mathchardef:D
         \tex_mathchardef:D \c__max_constdef_int 32 767 ~
-    \else
-       \cs_new_eq:NN \@@_constdef:Nw \tex_chardef:D
+      }
+      {
+        \cs_new_eq:NN \@@_constdef:Nw \tex_chardef:D
         \tex_chardef:D \c__max_constdef_int 1 114 111 ~
-    \fi
+      }
   }
 %    \end{macrocode}
 % \end{variable}
