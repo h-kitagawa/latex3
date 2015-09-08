@@ -100,7 +100,7 @@ regression-test.cfg
 expl3.sty
 expl3-code.tex
 l3unicode-data.def
-l3dvips.def
+l3dvipdfmx.def
 filetest.txt
 *************
 ============================================================

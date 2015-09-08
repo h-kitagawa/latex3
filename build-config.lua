@@ -8,6 +8,7 @@ checkengines = {"pdftex", "xetex", "luatex", "ptex", "uptex"}
 --checkengines = { "ptex", "uptex", "pdftex" }
 
 cmdchkfiles     = {"*.dtx"}
+checkengines    = {"pdftex", "xetex", "luatex", "ptex", "uptex"}
 checksuppfiles  = {"minimal.cls", "regression-test.cfg"}
 unpacksuppfiles = {"docstrip.tex"}
 
